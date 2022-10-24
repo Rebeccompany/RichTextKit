@@ -50,5 +50,6 @@ public extension RichTextViewRepresentable {
         to color: ColorRepresentable
     ) {
         setCurrentRichTextAttribute(.foregroundColor, to: color)
+        setCurrentRichTextAttribute(.underlineColor, to: color)
     }
 }
