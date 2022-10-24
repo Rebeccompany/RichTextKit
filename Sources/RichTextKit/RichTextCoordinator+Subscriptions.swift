@@ -41,7 +41,10 @@ private extension RichTextCoordinator {
         context.$alignment
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setAlignment(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setAlignment(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -49,7 +52,10 @@ private extension RichTextCoordinator {
         context.$backgroundColor
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setBackgroundColor(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setBackgroundColor(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -57,7 +63,10 @@ private extension RichTextCoordinator {
         context.$fontName
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setFontName(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setFontName(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -65,7 +74,10 @@ private extension RichTextCoordinator {
         context.$fontSize
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setFontSize(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setFontSize(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -73,7 +85,10 @@ private extension RichTextCoordinator {
         context.$foregroundColor
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setForegroundColor(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setForegroundColor(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -81,7 +96,10 @@ private extension RichTextCoordinator {
         context.$highlightedRange
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setHighlightedRange(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setHighlightedRange(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -89,7 +107,10 @@ private extension RichTextCoordinator {
         context.$isBold
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setStyle(.bold, to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setStyle(.bold, to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -97,7 +118,10 @@ private extension RichTextCoordinator {
         context.$isEditingText
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setIsEditing(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setIsEditing(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -105,7 +129,10 @@ private extension RichTextCoordinator {
         context.$isItalic
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setStyle(.italic, to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setStyle(.italic, to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -113,7 +140,10 @@ private extension RichTextCoordinator {
         context.$isUnderlined
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setStyle(.underlined, to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setStyle(.underlined, to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -121,7 +151,10 @@ private extension RichTextCoordinator {
         context.$selectedRange
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.setSelectedRange(to: $0) })
+                receiveValue: { [weak self] in
+                    self?.setSelectedRange(to: $0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -129,7 +162,10 @@ private extension RichTextCoordinator {
         context.$shouldCopySelection
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.copySelection($0) })
+                receiveValue: { [weak self] in
+                    self?.copySelection($0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -137,7 +173,10 @@ private extension RichTextCoordinator {
         context.$shouldPasteImage
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.pasteImage($0) })
+                receiveValue: { [weak self] in
+                    self?.pasteImage($0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -145,7 +184,10 @@ private extension RichTextCoordinator {
         context.$shouldPasteImages
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.pasteImages($0) })
+                receiveValue: { [weak self] in
+                    self?.pasteImages($0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -153,7 +195,10 @@ private extension RichTextCoordinator {
         context.$shouldPasteText
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.pasteText($0) })
+                receiveValue: { [weak self] in
+                    self?.pasteText($0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -161,7 +206,10 @@ private extension RichTextCoordinator {
         context.$shouldRedoLatestChange
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.redoLatestChange($0) })
+                receiveValue: { [weak self] in
+                    self?.redoLatestChange($0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 
@@ -169,7 +217,10 @@ private extension RichTextCoordinator {
         context.$shouldUndoLatestChange
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] in self?.undoLatestChange($0) })
+                receiveValue: { [weak self] in
+                    self?.undoLatestChange($0)
+                    self?.syncTextWithTextView()
+                })
             .store(in: &cancellables)
     }
 }
