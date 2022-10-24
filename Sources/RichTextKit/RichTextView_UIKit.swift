@@ -131,9 +131,9 @@ public extension RichTextView {
         text.autosizeImageAttachments(maxSize: imageAttachmentMaxSize)
         richTextDataFormat = format
         spellCheckingType = .no
-        textColor = .label
+        //textColor = .label
         setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        setupInitialFontSize(for: text)
+        //setupInitialFontSize(for: text)
         
         let bar = UIToolbar()
         let done = UIBarButtonItem(systemItem: .done)
