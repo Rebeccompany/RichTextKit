@@ -163,21 +163,25 @@ extension RichTextCoordinator {
      Sync the context with the text view.
      */
     func syncContextWithTextView() {
-        let styles = textView.currentRichTextStyles
-        context.alignment = textView.currentRichTextAlignment ?? .left
-        context.backgroundColor = textView.currentBackgroundColor
-        context.canCopy = textView.hasSelectedRange
-        context.canRedoLatestChange = textView.undoManager?.canRedo ?? false
-        context.canUndoLatestChange = textView.undoManager?.canUndo ?? false
-        context.fontName = textView.currentFontName ?? ""
-        context.fontSize = textView.currentFontSize ?? .standardRichTextFontSize
-        context.foregroundColor = textView.currentForegroundColor
-        context.isBold = styles.hasStyle(.bold)
-        context.isItalic = styles.hasStyle(.italic)
-        context.isUnderlined = styles.hasStyle(.underlined)
-        context.isEditingText = textView.isFirstResponder
-        context.selectedRange = textView.selectedRange
-        updateTextViewAttributesIfNeeded()
+        DispatchQueue.main.async {[weak self] in
+            guard let self else { return }
+            
+            let styles = self.textView.currentRichTextStyles
+            self.context.alignment = self.textView.currentRichTextAlignment ?? .left
+            self.context.backgroundColor = self.textView.currentBackgroundColor
+            self.context.canCopy = self.textView.hasSelectedRange
+            self.context.canRedoLatestChange = self.textView.undoManager?.canRedo ?? false
+            self.context.canUndoLatestChange = self.textView.undoManager?.canUndo ?? false
+            self.context.fontName = self.textView.currentFontName ?? ""
+            self.context.fontSize = self.textView.currentFontSize ?? .standardRichTextFontSize
+            self.context.foregroundColor = self.textView.currentForegroundColor
+            self.context.isBold = styles.hasStyle(.bold)
+            self.context.isItalic = styles.hasStyle(.italic)
+            self.context.isUnderlined = styles.hasStyle(.underlined)
+            self.context.isEditingText = self.textView.isFirstResponder
+            self.context.selectedRange = self.textView.selectedRange
+            self.updateTextViewAttributesIfNeeded()
+        }
     }
 
     /**
