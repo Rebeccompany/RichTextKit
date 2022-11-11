@@ -131,7 +131,9 @@ open class RichTextCoordinator: NSObject {
     }
 
     open func textDidEndEditing(_ notification: Notification) {
-        context.isEditingText = false
+        DispatchQueue.main.async {
+            context.isEditingText = false
+        }
     }
     #endif
 }
