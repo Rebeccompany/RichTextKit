@@ -131,7 +131,11 @@ public class RichTextContext: ObservableObject {
                 Color(uiColor: self.foregroundColor ?? .clear)
 #endif
             },
-            set: { self.foregroundColor = ColorRepresentable($0)}
+            set: { color in
+                DispatchQueue.main.async {
+                    self.foregroundColor = ColorRepresentable(color)
+                }
+            }
         )
     }
     
