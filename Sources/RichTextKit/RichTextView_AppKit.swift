@@ -84,9 +84,9 @@ public extension RichTextView {
         backgroundColor = .clear
         imageConfiguration = standardImageConfiguration(for: format)
         layoutManager?.defaultAttachmentScaling = NSImageScaling.scaleProportionallyDown
-        textColor = .textColor
+//        textColor = .textColor
         setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        setupInitialFontSize(for: text)
+//        setupInitialFontSize(for: text)
     }
 }
 
