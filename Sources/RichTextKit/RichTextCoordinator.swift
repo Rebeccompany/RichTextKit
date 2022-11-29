@@ -193,6 +193,7 @@ extension RichTextCoordinator {
         if text.wrappedValue == textView.attributedString { return }
         DispatchQueue.main.async {
             self.text.wrappedValue = self.textView.attributedString
+            self.updateTextViewAttributesIfNeeded()
         }
     }
 
